@@ -14,3 +14,14 @@ export async function deletevile(id) {
     const [resposta] = await con.query(comandos, [id]); 
     return resposta;
 }
+
+export async function voador(voa) {
+    const comando = `SELECT  id_vilao	        id,
+                             nm_vilao             nome,
+                             ds_personalidade    persona,
+                             bt_avoa             avoa
+                             FROM    tb_vilao
+                             WHERE   bt_avoa			= ?`;
+    const [resposta] = await con.query(comando, [voa]);
+    return resposta;
+}
