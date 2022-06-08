@@ -23,9 +23,9 @@ server.delete('/vilao/:id', async (req, resp) => {
     resp.status(204).send();
 })
 
-server.get('/vilao/filtro', async (req, resp) => {
+server.post('/vilao/filtro', async (req, resp) => {
     try {
-        const voa = Boolean(req.query.voa);
+        const voa = req.body;
         const snd = await voador(voa);
         resp.send(snd);
     } catch (err) {

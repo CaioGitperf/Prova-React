@@ -28,12 +28,13 @@ export async function deletevile(id) {
 }
 
 export async function voador(voa) {
-    const comando = `SELECT  id_vilao	        id,
-                             nm_vilao             nome,
-                             ds_personalidade    persona,
-                             bt_avoa             avoa
-                             FROM    tb_vilao
-                             WHERE   bt_avoa			= ?`;
-    const [resposta] = await con.query(comando, [voa]);
+    const comando = `SELECT  id_vilao	            id,
+                             nm_vilao               nome,
+                             ds_personalidade       persona,
+                             bt_avoa                avoa
+                             FROM                   tb_vilao
+                             WHERE                  bt_avoa	= ?`;
+    const [resposta] = await con.query(comando, [voa.voa]);
     return resposta;
 }
+

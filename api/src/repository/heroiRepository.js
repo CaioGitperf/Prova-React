@@ -28,13 +28,12 @@ export async function deleteheroe(id) {
 }
 
 export async function voador(voa) {
-    const comando = `SELECT  id_heroi	        id,
-                             nm_heroi             nome,
-                             ds_personalidade    persona,
-                             bt_avoa             avoa
-                             FROM    tb_heroi
-                             WHERE   bt_avoa			= ?`;
-    const [resposta] = await con.query(comando, [voa]);
-    if (!resposta) throw new Error("Item inexistente");
+    const comando = `SELECT  id_heroi	            id,
+                             nm_heroi               nome,
+                             ds_personalidade       persona,
+                             bt_avoa                avoa
+                             FROM                   tb_heroi
+                             WHERE                  bt_avoa	= ?`;
+    const [resposta] = await con.query(comando, [voa.voa]);
     return resposta;
 }

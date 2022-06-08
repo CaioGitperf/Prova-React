@@ -20,9 +20,9 @@ server.delete('/heroi/:id', async (req, resp) => {
     resp.status(204).send();
 })
 
-server.get('/heroi/filtro', async (req, resp) => {
+server.post('/heroi/filtro', async (req, resp) => {
     try {
-        const voa = Boolean(req.query.voa);
+        const voa = req.body;
         const snd = await voador(voa);
         resp.send(snd);
     } catch (err) {
