@@ -1,7 +1,12 @@
 import { Router } from "express";
-import { deleteheroe, inserheroe, voador} from "../repository/heroiRepository.js";
+import { deleteheroe, inserheroe, voador, showing} from "../repository/heroiRepository.js";
 
 const server = Router();
+
+server.get('/heroi', async (req, resp) => {
+    const send = await showing();
+    resp.send(send);
+})
 
 server.post('/heroi', async (req, resp) => {
     const get = req.body;
@@ -24,5 +29,4 @@ server.get('/heroi/filtro', async (req, resp) => {
         resp.send(err.message);
     }
 })
-
 export default server;
